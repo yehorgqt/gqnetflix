@@ -19,6 +19,7 @@
 		845CE8852B242A0F006D2BA2 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8842B242A0F006D2BA2 /* UpcomingViewController.swift */; };
 		845CE8882B242A2B006D2BA2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8872B242A2B006D2BA2 /* SearchViewController.swift */; };
 		845CE88A2B242A4B006D2BA2 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8892B242A4B006D2BA2 /* DownloadsViewController.swift */; };
+		845CE88C2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE88B2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		845CE8842B242A0F006D2BA2 /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		845CE8872B242A2B006D2BA2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		845CE8892B242A4B006D2BA2 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
+		845CE88B2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				845CE8822B2429C0006D2BA2 /* HomeViewController.swift */,
+				845CE88B2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				845CE8882B242A2B006D2BA2 /* SearchViewController.swift in Sources */,
 				845CE8512B24239E006D2BA2 /* MainTabBarViewController.swift in Sources */,
+				845CE88C2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift in Sources */,
 				845CE88A2B242A4B006D2BA2 /* DownloadsViewController.swift in Sources */,
 				845CE84D2B24239E006D2BA2 /* AppDelegate.swift in Sources */,
 				845CE84F2B24239E006D2BA2 /* SceneDelegate.swift in Sources */,
