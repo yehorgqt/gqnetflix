@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842406CA2B24E1F3003D0F56 /* SFSymbolsMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 842406C92B24E1F3003D0F56 /* SFSymbolsMacro */; };
+		842406CD2B24E220003D0F56 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842406CC2B24E220003D0F56 /* Symbols.swift */; };
 		845CE84D2B24239E006D2BA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE84C2B24239E006D2BA2 /* AppDelegate.swift */; };
 		845CE84F2B24239E006D2BA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE84E2B24239E006D2BA2 /* SceneDelegate.swift */; };
 		845CE8512B24239E006D2BA2 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8502B24239E006D2BA2 /* MainTabBarViewController.swift */; };
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		842406CC2B24E220003D0F56 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		845CE8492B24239E006D2BA2 /* gqnetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gqnetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845CE84C2B24239E006D2BA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845CE84E2B24239E006D2BA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842406CA2B24E1F3003D0F56 /* SFSymbolsMacro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		842406CB2B24E203003D0F56 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				842406CC2B24E220003D0F56 /* Symbols.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		845CE8402B24239E006D2BA2 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +119,7 @@
 		845CE84B2B24239E006D2BA2 /* gqnetflix */ = {
 			isa = PBXGroup;
 			children = (
+				842406CB2B24E203003D0F56 /* Utils */,
 				845CE87D2B242960006D2BA2 /* Features */,
 				845CE84C2B24239E006D2BA2 /* AppDelegate.swift */,
 				845CE84E2B24239E006D2BA2 /* SceneDelegate.swift */,
@@ -195,6 +208,9 @@
 			dependencies = (
 			);
 			name = gqnetflix;
+			packageProductDependencies = (
+				842406C92B24E1F3003D0F56 /* SFSymbolsMacro */,
+			);
 			productName = gqnetflix;
 			productReference = 845CE8492B24239E006D2BA2 /* gqnetflix.app */;
 			productType = "com.apple.product-type.application";
@@ -267,6 +283,9 @@
 				Base,
 			);
 			mainGroup = 845CE8402B24239E006D2BA2;
+			packageReferences = (
+				842406C82B24E1F3003D0F56 /* XCRemoteSwiftPackageReference "SFSymbolsMacro" */,
+			);
 			productRefGroup = 845CE84A2B24239E006D2BA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				842406CD2B24E220003D0F56 /* Symbols.swift in Sources */,
 				845CE8882B242A2B006D2BA2 /* SearchViewController.swift in Sources */,
 				845CE8512B24239E006D2BA2 /* MainTabBarViewController.swift in Sources */,
 				845CE88C2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift in Sources */,
@@ -653,6 +673,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		842406C82B24E1F3003D0F56 /* XCRemoteSwiftPackageReference "SFSymbolsMacro" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukepistrol/SFSymbolsMacro.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		842406C92B24E1F3003D0F56 /* SFSymbolsMacro */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 842406C82B24E1F3003D0F56 /* XCRemoteSwiftPackageReference "SFSymbolsMacro" */;
+			productName = SFSymbolsMacro;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 845CE8412B24239E006D2BA2 /* Project object */;
 }

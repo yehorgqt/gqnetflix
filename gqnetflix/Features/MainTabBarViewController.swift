@@ -29,7 +29,7 @@ private extension MainTabBarViewController {
     func homeVC() -> UINavigationController {
         let homeVC = UINavigationController(rootViewController: HomeViewController())
         
-        homeVC.tabBarItem.image = UIImage(systemName: "house")
+        homeVC.tabBarItem.image = UIImage(systemName: Symbols.house())
         homeVC.title = "Home"
         
         return homeVC
@@ -38,7 +38,7 @@ private extension MainTabBarViewController {
     func upcomingVC() -> UINavigationController {
         let homeVC = UINavigationController(rootViewController: UpcomingViewController())
         
-        homeVC.tabBarItem.image = UIImage(systemName: "play.circle")
+        homeVC.tabBarItem.image = UIImage(systemName: Symbols.upcoming())
         homeVC.title = "Coming Soon"
         
         return homeVC
@@ -47,7 +47,7 @@ private extension MainTabBarViewController {
     func searchVC() -> UINavigationController {
         let homeVC = UINavigationController(rootViewController: SearchViewController())
         
-        homeVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        homeVC.tabBarItem.image = UIImage(systemName: Symbols.search())
         homeVC.title = "Top Search"
         
         return homeVC
@@ -56,7 +56,7 @@ private extension MainTabBarViewController {
     func downloadsVC() -> UINavigationController {
         let homeVC = UINavigationController(rootViewController: DownloadsViewController())
         
-        homeVC.tabBarItem.image = UIImage(systemName: "square.and.arrow.down")
+        homeVC.tabBarItem.image = UIImage(systemName: Symbols.downloads())
         homeVC.title = "Downloads"
         
         return homeVC
