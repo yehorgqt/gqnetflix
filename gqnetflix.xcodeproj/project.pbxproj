@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		845CE84D2B24239E006D2BA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE84C2B24239E006D2BA2 /* AppDelegate.swift */; };
 		845CE84F2B24239E006D2BA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE84E2B24239E006D2BA2 /* SceneDelegate.swift */; };
-		845CE8512B24239E006D2BA2 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8502B24239E006D2BA2 /* AppViewController.swift */; };
+		845CE8512B24239E006D2BA2 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8502B24239E006D2BA2 /* MainTabBarViewController.swift */; };
 		845CE8562B24239F006D2BA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845CE8552B24239F006D2BA2 /* Assets.xcassets */; };
 		845CE8592B24239F006D2BA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845CE8572B24239F006D2BA2 /* LaunchScreen.storyboard */; };
 		845CE8642B24239F006D2BA2 /* gqnetflixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8632B24239F006D2BA2 /* gqnetflixTests.swift */; };
 		845CE86E2B24239F006D2BA2 /* gqnetflixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE86D2B24239F006D2BA2 /* gqnetflixUITests.swift */; };
 		845CE8702B24239F006D2BA2 /* gqnetflixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE86F2B24239F006D2BA2 /* gqnetflixUITestsLaunchTests.swift */; };
+		845CE8832B2429C0006D2BA2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8822B2429C0006D2BA2 /* HomeViewController.swift */; };
+		845CE8852B242A0F006D2BA2 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8842B242A0F006D2BA2 /* UpcomingViewController.swift */; };
+		845CE8882B242A2B006D2BA2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8872B242A2B006D2BA2 /* SearchViewController.swift */; };
+		845CE88A2B242A4B006D2BA2 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8892B242A4B006D2BA2 /* DownloadsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,7 @@
 		845CE8492B24239E006D2BA2 /* gqnetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gqnetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845CE84C2B24239E006D2BA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845CE84E2B24239E006D2BA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		845CE8502B24239E006D2BA2 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
+		845CE8502B24239E006D2BA2 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		845CE8552B24239F006D2BA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845CE8582B24239F006D2BA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845CE85A2B24239F006D2BA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +51,10 @@
 		845CE8692B24239F006D2BA2 /* gqnetflixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gqnetflixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		845CE86D2B24239F006D2BA2 /* gqnetflixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gqnetflixUITests.swift; sourceTree = "<group>"; };
 		845CE86F2B24239F006D2BA2 /* gqnetflixUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gqnetflixUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		845CE8822B2429C0006D2BA2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		845CE8842B242A0F006D2BA2 /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
+		845CE8872B242A2B006D2BA2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		845CE8892B242A4B006D2BA2 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +105,9 @@
 		845CE84B2B24239E006D2BA2 /* gqnetflix */ = {
 			isa = PBXGroup;
 			children = (
+				845CE87D2B242960006D2BA2 /* Features */,
 				845CE84C2B24239E006D2BA2 /* AppDelegate.swift */,
 				845CE84E2B24239E006D2BA2 /* SceneDelegate.swift */,
-				845CE8502B24239E006D2BA2 /* AppViewController.swift */,
 				845CE8552B24239F006D2BA2 /* Assets.xcassets */,
 				845CE8572B24239F006D2BA2 /* LaunchScreen.storyboard */,
 				845CE85A2B24239F006D2BA2 /* Info.plist */,
@@ -122,6 +130,50 @@
 				845CE86F2B24239F006D2BA2 /* gqnetflixUITestsLaunchTests.swift */,
 			);
 			path = gqnetflixUITests;
+			sourceTree = "<group>";
+		};
+		845CE87D2B242960006D2BA2 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				845CE8812B2429A4006D2BA2 /* Downloads */,
+				845CE8802B24299E006D2BA2 /* Search */,
+				845CE87F2B242996006D2BA2 /* Upcoming */,
+				845CE87E2B24297B006D2BA2 /* Home */,
+				845CE8502B24239E006D2BA2 /* MainTabBarViewController.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		845CE87E2B24297B006D2BA2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				845CE8822B2429C0006D2BA2 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		845CE87F2B242996006D2BA2 /* Upcoming */ = {
+			isa = PBXGroup;
+			children = (
+				845CE8842B242A0F006D2BA2 /* UpcomingViewController.swift */,
+			);
+			path = Upcoming;
+			sourceTree = "<group>";
+		};
+		845CE8802B24299E006D2BA2 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				845CE8872B242A2B006D2BA2 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		845CE8812B2429A4006D2BA2 /* Downloads */ = {
+			isa = PBXGroup;
+			children = (
+				845CE8892B242A4B006D2BA2 /* DownloadsViewController.swift */,
+			);
+			path = Downloads;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				845CE8512B24239E006D2BA2 /* AppViewController.swift in Sources */,
+				845CE8882B242A2B006D2BA2 /* SearchViewController.swift in Sources */,
+				845CE8512B24239E006D2BA2 /* MainTabBarViewController.swift in Sources */,
+				845CE88A2B242A4B006D2BA2 /* DownloadsViewController.swift in Sources */,
 				845CE84D2B24239E006D2BA2 /* AppDelegate.swift in Sources */,
 				845CE84F2B24239E006D2BA2 /* SceneDelegate.swift in Sources */,
+				845CE8852B242A0F006D2BA2 /* UpcomingViewController.swift in Sources */,
+				845CE8832B2429C0006D2BA2 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
