@@ -10,7 +10,7 @@ import UIKit
 final class HomeViewController: UIViewController {
     
     private lazy var homeFeedTable: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         
         return table
@@ -27,6 +27,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - Set up
 private extension HomeViewController {
     func setUp() {
         view.backgroundColor = .systemBackground
@@ -38,13 +39,21 @@ private extension HomeViewController {
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
+        homeFeedTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 2))
+        
         view.addSubview(homeFeedTable)
     }
 }
 
+// MARK: - Table View Protocols
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 20
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
