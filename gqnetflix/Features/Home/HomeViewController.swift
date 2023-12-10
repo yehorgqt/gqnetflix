@@ -32,14 +32,31 @@ private extension HomeViewController {
     func setUp() {
         view.backgroundColor = .systemBackground
         
+        configureNavBar()
         setUpTableView()
+    }
+    
+    func configureNavBar() {
+        let image = UIImage(named: Assets.netflixLogo)?
+            .withRenderingMode(.alwaysOriginal)
+            .resizeTo(size: CGSize(width: 25, height: 25))
+        
+        let button = UIButton()
+        button.setBackgroundImage(image, for: .normal)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: Symbols.person()), style: .done, target: self, action: nil),
+            UIBarButtonItem(image: UIImage(systemName: Symbols.play()), style: .done, target: self, action: nil)
+        ]
     }
     
     func setUpTableView() {
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
-        homeFeedTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 2))
+        homeFeedTable.tableHeaderView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 2))
         
         view.addSubview(homeFeedTable)
     }

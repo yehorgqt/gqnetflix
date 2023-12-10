@@ -14,4 +14,6 @@ enum Symbols: String {
     case upcoming = "play.circle"
     case search = "magnifyingglass"
     case downloads = "square.and.arrow.down"
+    case person
+    case play = "play.rectangle"
 }

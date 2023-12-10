@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		842406CA2B24E1F3003D0F56 /* SFSymbolsMacro in Frameworks */ = {isa = PBXBuildFile; productRef = 842406C92B24E1F3003D0F56 /* SFSymbolsMacro */; };
 		842406CD2B24E220003D0F56 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842406CC2B24E220003D0F56 /* Symbols.swift */; };
+		842406CF2B254350003D0F56 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842406CE2B254350003D0F56 /* HeroHeaderUIView.swift */; };
+		842406D12B26526E003D0F56 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842406D02B26526E003D0F56 /* Assets.swift */; };
 		845CE84D2B24239E006D2BA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE84C2B24239E006D2BA2 /* AppDelegate.swift */; };
 		845CE84F2B24239E006D2BA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE84E2B24239E006D2BA2 /* SceneDelegate.swift */; };
 		845CE8512B24239E006D2BA2 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8502B24239E006D2BA2 /* MainTabBarViewController.swift */; };
@@ -22,6 +24,9 @@
 		845CE8882B242A2B006D2BA2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8872B242A2B006D2BA2 /* SearchViewController.swift */; };
 		845CE88A2B242A4B006D2BA2 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8892B242A4B006D2BA2 /* DownloadsViewController.swift */; };
 		845CE88C2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE88B2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift */; };
+		84B5C4A12B2661E200E636C9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84B5C4A02B2661E200E636C9 /* SnapKit */; };
+		84B5C4A52B2665B500E636C9 /* NetflixMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B5C4A42B2665B500E636C9 /* NetflixMainButton.swift */; };
+		84B5C4A82B266F3100E636C9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B5C4A72B266F3100E636C9 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		842406CC2B24E220003D0F56 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		842406CE2B254350003D0F56 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
+		842406D02B26526E003D0F56 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		845CE8492B24239E006D2BA2 /* gqnetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gqnetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845CE84C2B24239E006D2BA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845CE84E2B24239E006D2BA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +67,8 @@
 		845CE8872B242A2B006D2BA2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		845CE8892B242A4B006D2BA2 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		845CE88B2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		84B5C4A42B2665B500E636C9 /* NetflixMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixMainButton.swift; sourceTree = "<group>"; };
+		84B5C4A72B266F3100E636C9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				842406CA2B24E1F3003D0F56 /* SFSymbolsMacro in Frameworks */,
+				84B5C4A12B2661E200E636C9 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				842406CC2B24E220003D0F56 /* Symbols.swift */,
+				842406D02B26526E003D0F56 /* Assets.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -103,6 +114,7 @@
 				845CE8622B24239F006D2BA2 /* gqnetflixTests */,
 				845CE86C2B24239F006D2BA2 /* gqnetflixUITests */,
 				845CE84A2B24239E006D2BA2 /* Products */,
+				84B5C49F2B2661E200E636C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +131,8 @@
 		845CE84B2B24239E006D2BA2 /* gqnetflix */ = {
 			isa = PBXGroup;
 			children = (
+				84B5C4A62B266F2500E636C9 /* Extensions */,
+				84B5C4A22B26658600E636C9 /* Views */,
 				842406CB2B24E203003D0F56 /* Utils */,
 				845CE87D2B242960006D2BA2 /* Features */,
 				845CE84C2B24239E006D2BA2 /* AppDelegate.swift */,
@@ -164,6 +178,7 @@
 			children = (
 				845CE8822B2429C0006D2BA2 /* HomeViewController.swift */,
 				845CE88B2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift */,
+				842406CE2B254350003D0F56 /* HeroHeaderUIView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -192,6 +207,37 @@
 			path = Downloads;
 			sourceTree = "<group>";
 		};
+		84B5C49F2B2661E200E636C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84B5C4A22B26658600E636C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84B5C4A32B26658A00E636C9 /* Buttons */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		84B5C4A32B26658A00E636C9 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				84B5C4A42B2665B500E636C9 /* NetflixMainButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		84B5C4A62B266F2500E636C9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84B5C4A72B266F3100E636C9 /* UIImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -210,6 +256,7 @@
 			name = gqnetflix;
 			packageProductDependencies = (
 				842406C92B24E1F3003D0F56 /* SFSymbolsMacro */,
+				84B5C4A02B2661E200E636C9 /* SnapKit */,
 			);
 			productName = gqnetflix;
 			productReference = 845CE8492B24239E006D2BA2 /* gqnetflix.app */;
@@ -285,6 +332,7 @@
 			mainGroup = 845CE8402B24239E006D2BA2;
 			packageReferences = (
 				842406C82B24E1F3003D0F56 /* XCRemoteSwiftPackageReference "SFSymbolsMacro" */,
+				842406D22B265DF3003D0F56 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 845CE84A2B24239E006D2BA2 /* Products */;
 			projectDirPath = "";
@@ -329,13 +377,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				842406CD2B24E220003D0F56 /* Symbols.swift in Sources */,
+				842406D12B26526E003D0F56 /* Assets.swift in Sources */,
+				842406CF2B254350003D0F56 /* HeroHeaderUIView.swift in Sources */,
 				845CE8882B242A2B006D2BA2 /* SearchViewController.swift in Sources */,
 				845CE8512B24239E006D2BA2 /* MainTabBarViewController.swift in Sources */,
+				84B5C4A52B2665B500E636C9 /* NetflixMainButton.swift in Sources */,
 				845CE88C2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift in Sources */,
 				845CE88A2B242A4B006D2BA2 /* DownloadsViewController.swift in Sources */,
 				845CE84D2B24239E006D2BA2 /* AppDelegate.swift in Sources */,
 				845CE84F2B24239E006D2BA2 /* SceneDelegate.swift in Sources */,
 				845CE8852B242A0F006D2BA2 /* UpcomingViewController.swift in Sources */,
+				84B5C4A82B266F3100E636C9 /* UIImage.swift in Sources */,
 				845CE8832B2429C0006D2BA2 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,6 +735,14 @@
 				minimumVersion = 0.5.1;
 			};
 		};
+		842406D22B265DF3003D0F56 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -690,6 +750,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 842406C82B24E1F3003D0F56 /* XCRemoteSwiftPackageReference "SFSymbolsMacro" */;
 			productName = SFSymbolsMacro;
+		};
+		84B5C4A02B2661E200E636C9 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 842406D22B265DF3003D0F56 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
