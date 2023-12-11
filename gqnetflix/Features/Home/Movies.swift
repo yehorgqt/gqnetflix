@@ -16,6 +16,7 @@ struct Movie: Decodable, Equatable {
     let popularity: Double
     let voteAverage: Double
     let voteCount: Double
+    let overview: String?
 }
 
 extension Movie {

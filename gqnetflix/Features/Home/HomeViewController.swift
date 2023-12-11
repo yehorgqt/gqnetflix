@@ -31,9 +31,6 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-//        getMovies(endpoint: .trandingMovies) { response in
-//            print(response)
-//        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -65,7 +62,7 @@ private extension HomeViewController {
         view.backgroundColor = .systemBackground
         
         configureNavBar()
-        setUpTableView()
+        configureTableView()
     }
     
     func configureNavBar() {
@@ -86,7 +83,7 @@ private extension HomeViewController {
         navigationController?.navigationBar.tintColor = .red
     }
     
-    func setUpTableView() {
+    func configureTableView() {
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         

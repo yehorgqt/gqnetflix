@@ -9,7 +9,7 @@ import UIKit
 
 final class CollectionViewTableViewCell: UITableViewCell {
     
-    static let identifier = "CollectionViewTableViewCell"
+    static let identifier = String(describing: CollectionViewTableViewCell.self)
     
     private var movies: [Movie] = []
     
@@ -58,7 +58,6 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         return movies.count
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.indentifier, for: indexPath) as? MovieCollectionViewCell else {
             return UICollectionViewCell()
@@ -69,5 +68,4 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         
         return cell
     }
-    
 }
