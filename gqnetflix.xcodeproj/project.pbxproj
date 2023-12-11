@@ -25,6 +25,8 @@
 		845CE88A2B242A4B006D2BA2 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE8892B242A4B006D2BA2 /* DownloadsViewController.swift */; };
 		845CE88C2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CE88B2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift */; };
 		8481D5312B26C698007B9E6D /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481D5302B26C698007B9E6D /* Secrets.swift */; };
+		8481D5332B26D128007B9E6D /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481D5322B26D128007B9E6D /* MovieCollectionViewCell.swift */; };
+		8481D5362B26D266007B9E6D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8481D5352B26D266007B9E6D /* SDWebImage */; };
 		84B396D82B2681670086307F /* Decoder+Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B396D72B2681670086307F /* Decoder+Encoder.swift */; };
 		84B396DA2B2681FB0086307F /* MoviesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B396D92B2681FB0086307F /* MoviesClient.swift */; };
 		84B396DC2B2682EA0086307F /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B396DB2B2682EA0086307F /* Movies.swift */; };
@@ -57,7 +59,7 @@
 /* Begin PBXFileReference section */
 		842406CC2B24E220003D0F56 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		842406CE2B254350003D0F56 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
-		842406D02B26526E003D0F56 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		842406D02B26526E003D0F56 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
 		845CE8492B24239E006D2BA2 /* gqnetflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gqnetflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845CE84C2B24239E006D2BA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845CE84E2B24239E006D2BA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		845CE8892B242A4B006D2BA2 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		845CE88B2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		8481D5302B26C698007B9E6D /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		8481D5322B26D128007B9E6D /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		84B396D72B2681670086307F /* Decoder+Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decoder+Encoder.swift"; sourceTree = "<group>"; };
 		84B396D92B2681FB0086307F /* MoviesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesClient.swift; sourceTree = "<group>"; };
 		84B396DB2B2682EA0086307F /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8481D5362B26D266007B9E6D /* SDWebImage in Frameworks */,
 				842406CA2B24E1F3003D0F56 /* SFSymbolsMacro in Frameworks */,
 				84B5C4A12B2661E200E636C9 /* SnapKit in Frameworks */,
 			);
@@ -200,6 +204,7 @@
 				845CE88B2B2431A9006D2BA2 /* CollectionViewTableViewCell.swift */,
 				842406CE2B254350003D0F56 /* HeroHeaderUIView.swift */,
 				84B396DB2B2682EA0086307F /* Movies.swift */,
+				8481D5322B26D128007B9E6D /* MovieCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 			packageProductDependencies = (
 				842406C92B24E1F3003D0F56 /* SFSymbolsMacro */,
 				84B5C4A02B2661E200E636C9 /* SnapKit */,
+				8481D5352B26D266007B9E6D /* SDWebImage */,
 			);
 			productName = gqnetflix;
 			productReference = 845CE8492B24239E006D2BA2 /* gqnetflix.app */;
@@ -365,6 +371,7 @@
 			packageReferences = (
 				842406C82B24E1F3003D0F56 /* XCRemoteSwiftPackageReference "SFSymbolsMacro" */,
 				842406D22B265DF3003D0F56 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				8481D5342B26D1B9007B9E6D /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 845CE84A2B24239E006D2BA2 /* Products */;
 			projectDirPath = "";
@@ -427,6 +434,7 @@
 				8481D5312B26C698007B9E6D /* Secrets.swift in Sources */,
 				84B396DC2B2682EA0086307F /* Movies.swift in Sources */,
 				84B396DE2B2683390086307F /* NetworkRespones.swift in Sources */,
+				8481D5332B26D128007B9E6D /* MovieCollectionViewCell.swift in Sources */,
 				845CE8832B2429C0006D2BA2 /* HomeViewController.swift in Sources */,
 				84B396DA2B2681FB0086307F /* MoviesClient.swift in Sources */,
 			);
@@ -785,6 +793,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		8481D5342B26D1B9007B9E6D /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -792,6 +808,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 842406C82B24E1F3003D0F56 /* XCRemoteSwiftPackageReference "SFSymbolsMacro" */;
 			productName = SFSymbolsMacro;
+		};
+		8481D5352B26D266007B9E6D /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8481D5342B26D1B9007B9E6D /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 		84B5C4A02B2661E200E636C9 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

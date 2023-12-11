@@ -8,9 +8,17 @@
 import UIKit
 import Combine
 
+fileprivate enum Sections: Int {
+    case TrandingMovies = 0
+    case TrandingTV = 1
+    case Popular = 2
+    case Upcoming = 3
+    case TopRated = 4
+}
+
 final class HomeViewController: UIViewController {
     
-    private let sectionTitles: [String] = ["Trending Movies", "Popular", "Tranding TV", "Upcoming Movies", "Top Rated"]
+    private let sectionTitles: [String] = ["Trending Movies", "Tranding TV", "Popular", "Upcoming Movies", "Top Rated"]
     var cancellable: Set<AnyCancellable> = []
     
     private lazy var homeFeedTable: UITableView = {

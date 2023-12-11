@@ -42,10 +42,18 @@ public enum HTTPMethod: String {
 // MARK: - Endpoints
 public enum Endpoint {
     case trandingMovies
+    case trandingTV
+    case upcomingMovies
+    case popularMovies
+    case topRated
 
     var route: String {
         switch self {
-        case .trandingMovies: return "/trending/all/day?language=en-US"
+        case .trandingMovies: return "/trending/movie/day?language=en-US"
+        case .trandingTV: return "/trending/tv/day?language=en-US"
+        case .upcomingMovies: return "/movie/upcoming/language=en-US"
+        case .popularMovies: return "/movie/popular/language=en-US"
+        case .topRated: return "/movie/top_rated/language=en-US"
         }
     }
 }
