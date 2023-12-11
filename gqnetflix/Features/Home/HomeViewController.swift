@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeViewController: UIViewController {
     
     private let sectionTitles: [String] = ["Trending Movies", "Popular", "Tranding TV", "Upcoming Movies", "Top Rated"]
+    var cancellable: Set<AnyCancellable> = []
     
     private lazy var homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -21,11 +23,29 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        getMovies()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
+    }
+    
+    func getMovies() {
+        let publisher = MoviesClient.live.fetchMovies(NetworkRequest(httpMethod: .get, endpoint: .trandingMovies))
+        publisher
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            } receiveValue: { response in
+                print(response)
+            }
+            .store(in: &cancellable)
     }
 }
 
@@ -85,7 +105,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.textLabel?.text = "Test"
         return cell
     }
     
