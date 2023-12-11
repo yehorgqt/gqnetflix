@@ -60,7 +60,7 @@ private func prepareRequest(_ networkRequest: NetworkRequest) -> URLRequest? {
     request.httpMethod = networkRequest.httpMethod.rawValue
     request.allHTTPHeaderFields = networkRequest.headers
     
-    request.addValue("Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5OTNkYTkzNzI2NzhmODg1NTJkYTZlZTc4ZTk0MmYwZiIsInN1YiI6IjVmNDdmOWE3YTJlNjAyMDAzNGY1NjBhYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nfQFglIY5GiMZK_Qo-cIPI63K8kiKrSrQR88H5UZ8rs", forHTTPHeaderField: "Authorization")
+    request.addValue("Bearer \(Secrets.apiKey)", forHTTPHeaderField: "Authorization")
     
     if let body = networkRequest.body {
         request.httpBody = body
