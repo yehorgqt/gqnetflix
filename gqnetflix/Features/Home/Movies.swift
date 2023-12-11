@@ -17,3 +17,11 @@ struct Movie: Decodable, Equatable {
     let voteAverage: Double
     let voteCount: Double
 }
+
+extension Movie {
+    var safeName: String {
+        if let title { return title }
+        if let name { return name }
+        return ""
+    }
+}
