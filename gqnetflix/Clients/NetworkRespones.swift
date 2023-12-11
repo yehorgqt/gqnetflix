@@ -8,8 +8,8 @@
 import Foundation
 
 struct MoviesResponse: Decodable, Equatable {
-    let page: Int
-    let totalPages: Int
-    let totalResults: Int
+//    let page: Int
+//    let totalPages: Int
+//    let totalResults: Int
     let results: [Movie]
 }

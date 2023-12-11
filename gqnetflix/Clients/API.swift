@@ -51,9 +51,9 @@ public enum Endpoint {
         switch self {
         case .trandingMovies: return "/trending/movie/day?language=en-US"
         case .trandingTV: return "/trending/tv/day?language=en-US"
-        case .upcomingMovies: return "/movie/upcoming/language=en-US"
-        case .popularMovies: return "/movie/popular/language=en-US"
-        case .topRated: return "/movie/top_rated/language=en-US"
+        case .upcomingMovies: return "/movie/upcoming?language=en-US"
+        case .popularMovies: return "/movie/popular?language=en-US"
+        case .topRated: return "/movie/top_rated?language=en-US"
         }
     }
 }

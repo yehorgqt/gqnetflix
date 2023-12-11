@@ -31,7 +31,9 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        getMovies()
+//        getMovies(endpoint: .trandingMovies) { response in
+//            print(response)
+//        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -39,8 +41,9 @@ final class HomeViewController: UIViewController {
         homeFeedTable.frame = view.bounds 
     }
     
-    func getMovies() {
-        let publisher = MoviesClient.live.fetchMovies(NetworkRequest(httpMethod: .get, endpoint: .trandingMovies))
+    func getMovies(endpoint: Endpoint, completion: @escaping (MoviesResponse) -> Void) {
+        let publisher = MoviesClient.live.fetchMovies(NetworkRequest(httpMethod: .get, endpoint: endpoint))
+        
         publisher
             .sink { completion in
                 switch completion {
@@ -48,10 +51,9 @@ final class HomeViewController: UIViewController {
                     break
                 case .failure(let error):
                     print(error)
-                    break
                 }
             } receiveValue: { response in
-                print(response)
+                completion(response)
             }
             .store(in: &cancellable)
     }
@@ -110,6 +112,31 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             withIdentifier: CollectionViewTableViewCell.identifier,
             for: indexPath) as? CollectionViewTableViewCell
         else {
+            return UITableViewCell()
+        }
+        
+        switch indexPath.section {
+        case Sections.TrandingMovies.rawValue:
+            getMovies(endpoint: .trandingMovies) { response in
+                cell.configure(with: response.results)
+            }
+        case Sections.TrandingTV.rawValue:
+            getMovies(endpoint: .trandingTV) { response in
+                cell.configure(with: response.results)
+            }
+        case Sections.Popular.rawValue:
+            getMovies(endpoint: .popularMovies) { response in
+                cell.configure(with: response.results)
+            }
+        case Sections.Upcoming.rawValue:
+            getMovies(endpoint: .upcomingMovies) { response in
+                cell.configure(with: response.results)
+            }
+        case Sections.TopRated.rawValue:
+            getMovies(endpoint: .topRated) { response in
+                cell.configure(with: response.results)
+            }
+        default:
             return UITableViewCell()
         }
         
