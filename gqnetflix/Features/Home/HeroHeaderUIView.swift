@@ -69,16 +69,20 @@ private extension HeroHeaderUIView {
 // MARK: - Constraints
 private extension HeroHeaderUIView {
     func addConstraints() {
-        playButton.snp.makeConstraints { (make) -> Void in
-            make.leading.equalTo(25)
-            make.bottom.equalTo(-50)
-            make.width.equalTo(100)
+        downloadButton.snp.makeConstraints { (make) -> Void in
+            make.bottom.equalTo(-16)
+            make.width.equalTo(bounds.width - 32)
+            make.height.equalTo(40)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
         }
         
-        downloadButton.snp.makeConstraints { (make) -> Void in
-            make.trailing.equalTo(-25)
-            make.bottom.equalTo(-50)
-            make.width.equalTo(100)
+        playButton.snp.makeConstraints { (make) -> Void in
+            make.bottom.equalTo(downloadButton.snp.top).offset(-8)
+            make.width.equalTo(bounds.width - 32)
+            make.height.equalTo(40)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
         }
     }
 }

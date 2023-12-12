@@ -72,7 +72,7 @@ extension HomeView: UITableViewDelegate {
         headerConfiguration.directionalLayoutMargins = NSDirectionalEdgeInsets(
             top: 6,
             leading: 6,
-            bottom: 6,
+            bottom: 12,
             trailing: 6
         )
         headerConfiguration.textProperties.color = .white
