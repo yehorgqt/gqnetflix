@@ -7,35 +7,54 @@
 
 import UIKit
 import Combine
+import SnapKit
 
 final class UpcomingViewController: UIViewController {
     
-    private var movies: [Movie] = []
-    private var cancellable: Set<AnyCancellable> = []
+    private var disposalBag = Set<AnyCancellable>()
     
-    private lazy var upcomingTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
-        return tableView
+    private lazy var upcomingView: UpcomingView = {
+        let view = UpcomingView()
+        view.delegate = self
+        return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp()
-        getMovies(endpoint: .upcomingMovies) { response in
-            self.movies = response.results
-            DispatchQueue.main.async {
-                self.upcomingTableView.reloadData()
-            }
+        setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchMovies(endpoint: .upcomingMovies) { response in
+            self.upcomingView.movies = response.results
+        }
+    }
+}
+
+// MARK: - Configuration
+private extension UpcomingViewController {
+    func setup() {
+        view.backgroundColor = .systemBackground
+        
+        configureNavBar()
+        view.addSubview(upcomingView)
+        
+        upcomingView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        upcomingTableView.frame = view.bounds
+    func configureNavBar() {
+        title = "Upcoming"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
-    
-    func getMovies(endpoint: Endpoint, completion: @escaping (MoviesResponse) -> Void) {
+}
+
+// MARK: - Network
+private extension UpcomingViewController {
+    func fetchMovies(endpoint: Endpoint, completion: @escaping (MoviesResponse) -> Void) {
         let publisher = MoviesClient.live.fetchMovies(NetworkRequest(httpMethod: .get, endpoint: endpoint))
         
         publisher
@@ -49,58 +68,9 @@ final class UpcomingViewController: UIViewController {
             } receiveValue: { response in
                 completion(response)
             }
-            .store(in: &cancellable)
+            .store(in: &disposalBag)
     }
 }
 
-// MARK: - Configuration
-private extension UpcomingViewController {
-    func setUp() {
-        view.backgroundColor = .systemBackground
-        
-        configureNavBar()
-        configureTableView()
-    }
-    
-    func configureNavBar() {
-        title = "Upcoming"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
-    }
-    
-    func configureTableView() {
-        upcomingTableView.delegate = self
-        upcomingTableView.dataSource = self
-        
-        view.addSubview(upcomingTableView)
-    }
-}
-
-// MARK: - Table View Protocols
-extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        movies.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: MovieTableViewCell.identifier,
-            for: indexPath) as? MovieTableViewCell
-        else { return UITableViewCell() }
-        
-        let movie = movies[indexPath.row]
-        let model = MovieViewModel(
-            title: movie.safeName,
-            postUrl: movie.posterPath ?? "",
-            overview: movie.overview ?? "..."
-        )
-        cell.configure(with: model)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
-    }
-}
-
+// MARK: - Delegate
+extension UpcomingViewController: UpcomingDelegate {}

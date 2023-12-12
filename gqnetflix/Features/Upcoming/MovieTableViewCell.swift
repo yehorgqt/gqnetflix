@@ -11,11 +11,6 @@ final class MovieTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: MovieTableViewCell.self)
     
-    private lazy var playMovieButton: NetflixMainButton = {
-        let button = NetflixMainButton(title: "Play")
-        return button
-    }()
-    
     private lazy var movieLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .semibold)
@@ -64,7 +59,6 @@ private extension MovieTableViewCell {
     func setUp() {
         contentView.addSubview(moviePosterView)
         contentView.addSubview(movieLabel)
-        contentView.addSubview(playMovieButton)
         contentView.addSubview(overviewLabel)
         
         applyConstraints()
@@ -80,20 +74,15 @@ private extension MovieTableViewCell {
         
         movieLabel.snp.makeConstraints { make in
             make.leading.equalTo(moviePosterView.snp.trailing).offset(20)
+            make.trailing.equalTo(self.snp.trailing).offset(-20)
             make.centerY.equalTo(25)
         }
         
         overviewLabel.snp.makeConstraints { make in
             make.leading.equalTo(moviePosterView.snp.trailing).offset(20)
             make.top.equalTo(movieLabel.snp.bottom)
-            make.trailing.equalTo(playMovieButton.snp.leading).offset(-10)
+            make.trailing.equalTo(self.snp.trailing).offset(-20)
             make.bottom.equalTo(contentView.snp.bottom).offset(-20)
-        }
-        
-        playMovieButton.snp.makeConstraints { make in
-            make.trailing.equalTo(-10)
-            make.centerY.equalTo(contentView.snp.centerY)
-            make.width.equalTo(40)
         }
     }
 }

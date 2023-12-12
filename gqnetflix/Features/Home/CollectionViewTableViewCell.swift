@@ -11,7 +11,13 @@ final class CollectionViewTableViewCell: UITableViewCell {
     
     static let identifier = String(describing: CollectionViewTableViewCell.self)
     
-    private var movies: [Movie] = []
+    private var movies: [Movie] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
+        }
+    }
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -46,9 +52,6 @@ final class CollectionViewTableViewCell: UITableViewCell {
 extension CollectionViewTableViewCell {
     public func configure(with movies: [Movie]) {
         self.movies = movies
-        DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
-        }
     }
 }
 
