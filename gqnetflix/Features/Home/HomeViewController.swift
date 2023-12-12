@@ -28,7 +28,6 @@ final class HomeViewController: UIViewController {
 // MARK: - Configure
 private extension HomeViewController {
     func setup() {
-        view.backgroundColor = .black
         configureNavBar()
         view.addSubview(homeView)
         

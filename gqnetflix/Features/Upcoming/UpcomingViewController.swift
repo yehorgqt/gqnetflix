@@ -35,8 +35,6 @@ final class UpcomingViewController: UIViewController {
 // MARK: - Configuration
 private extension UpcomingViewController {
     func setup() {
-        view.backgroundColor = .systemBackground
-        
         configureNavBar()
         view.addSubview(upcomingView)
         

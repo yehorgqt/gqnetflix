@@ -43,6 +43,7 @@ final class UpcomingView: UIView {
 // MARK: - Configuration
 private extension UpcomingView {
     func setup() {
+        backgroundColor = .black
         addSubview(upcomingTableView)
         
         upcomingTableView.snp.makeConstraints { make in

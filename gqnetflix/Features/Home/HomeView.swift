@@ -53,6 +53,7 @@ final class HomeView: UIView {
 // MARK: - Configure
 private extension HomeView {
     func setup() {
+        backgroundColor = .black
         addSubview(homeFeedTable)
         
         homeFeedTable.snp.makeConstraints { make in

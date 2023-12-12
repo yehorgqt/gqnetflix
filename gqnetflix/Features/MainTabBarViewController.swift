@@ -18,7 +18,7 @@ final class MainTabBarViewController: UITabBarController {
 // MARK: - Set up
 private extension MainTabBarViewController {
     func setUp() {
-        tabBar.tintColor = .label
+        tabBar.tintColor = .systemRed
         
         setViewControllers([homeVC(), upcomingVC(), searchVC(), downloadsVC()], animated: true)
     }
