@@ -7,62 +7,34 @@
 
 import UIKit
 import Combine
-
-fileprivate enum Sections: Int {
-    case TrandingMovies = 0
-    case TrandingTV = 1
-    case Popular = 2
-    case Upcoming = 3
-    case TopRated = 4
-}
+import SnapKit
 
 final class HomeViewController: UIViewController {
     
-    private let sectionTitles: [String] = ["Trending Movies", "Tranding TV", "Popular", "Upcoming Movies", "Top Rated"]
-    var cancellable: Set<AnyCancellable> = []
+    private var disposalBag = Set<AnyCancellable>()
     
-    private lazy var homeFeedTable: UITableView = {
-        let table = UITableView(frame: .zero, style: .grouped)
-        table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
-        
-        return table
+    private lazy var homeView: HomeView = {
+        let view = HomeView()
+        view.delegate = self
+        return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        homeFeedTable.frame = view.bounds 
-    }
-    
-    func getMovies(endpoint: Endpoint, completion: @escaping (MoviesResponse) -> Void) {
-        let publisher = MoviesClient.live.fetchMovies(NetworkRequest(httpMethod: .get, endpoint: endpoint))
-        
-        publisher
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print(error)
-                }
-            } receiveValue: { response in
-                completion(response)
-            }
-            .store(in: &cancellable)
+        setup()
     }
 }
 
-// MARK: - Set up
+// MARK: - Configure
 private extension HomeViewController {
-    func setUp() {
-        view.backgroundColor = .systemBackground
-        
+    func setup() {
+        view.backgroundColor = .black
         configureNavBar()
-        configureTableView()
+        view.addSubview(homeView)
+        
+        homeView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     func configureNavBar() {
@@ -82,92 +54,28 @@ private extension HomeViewController {
         
         navigationController?.navigationBar.tintColor = .red
     }
-    
-    func configureTableView() {
-        homeFeedTable.delegate = self
-        homeFeedTable.dataSource = self
-        
-        homeFeedTable.tableHeaderView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 2))
-        
-        view.addSubview(homeFeedTable)
-    }
 }
 
-// MARK: - Table View Protocols
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CollectionViewTableViewCell.identifier,
-            for: indexPath) as? CollectionViewTableViewCell
-        else {
-            return UITableViewCell()
-        }
+// MARK: - Delegate
+extension HomeViewController: HomeDelegate {
+    func fetchMovies(endpoint: Endpoint, completion: @escaping (MoviesResponse) -> Void) {
+        let publisher = MoviesClient.live.fetchMovies(NetworkRequest(httpMethod: .get, endpoint: endpoint))
         
-        switch indexPath.section {
-        case Sections.TrandingMovies.rawValue:
-            getMovies(endpoint: .trandingMovies) { response in
-                cell.configure(with: response.results)
+        publisher
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                }
+            } receiveValue: { response in
+                completion(response)
             }
-        case Sections.TrandingTV.rawValue:
-            getMovies(endpoint: .trandingTV) { response in
-                cell.configure(with: response.results)
-            }
-        case Sections.Popular.rawValue:
-            getMovies(endpoint: .popularMovies) { response in
-                cell.configure(with: response.results)
-            }
-        case Sections.Upcoming.rawValue:
-            getMovies(endpoint: .upcomingMovies) { response in
-                cell.configure(with: response.results)
-            }
-        case Sections.TopRated.rawValue:
-            getMovies(endpoint: .topRated) { response in
-                cell.configure(with: response.results)
-            }
-        default:
-            return UITableViewCell()
-        }
-        
-        return cell
+            .store(in: &disposalBag)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        var headerConfiguration = header.defaultContentConfiguration()
-        headerConfiguration.textProperties.font = .systemFont(ofSize: 18, weight: .semibold)
-        headerConfiguration.textProperties.transform = .none
-        headerConfiguration.directionalLayoutMargins.bottom = 2
-        headerConfiguration.textProperties.color = .white
-        headerConfiguration.text = sectionTitles[section]
-        
-        header.contentConfiguration = headerConfiguration
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitles[section]
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let defaultOffset = view.safeAreaInsets.top
-        let offset = scrollView.contentOffset.y + defaultOffset
-        
-        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
+    func tranfsorm(with offset: CGFloat) {
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
     }
 }

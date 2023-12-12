@@ -40,6 +40,7 @@
 		84D801B32B27B9DC0092EEB4 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D801B22B27B9DC0092EEB4 /* Collection.swift */; };
 		84D801B52B27BCDE0092EEB4 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D801B42B27BCDE0092EEB4 /* MovieTableViewCell.swift */; };
 		84D801B72B27C0110092EEB4 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D801B62B27C0110092EEB4 /* MovieViewModel.swift */; };
+		84D801B92B27D4150092EEB4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D801B82B27D4150092EEB4 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		84D801B22B27B9DC0092EEB4 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		84D801B42B27BCDE0092EEB4 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		84D801B62B27C0110092EEB4 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		84D801B82B27D4150092EEB4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				842406CE2B254350003D0F56 /* HeroHeaderUIView.swift */,
 				84B396DB2B2682EA0086307F /* Movies.swift */,
 				8481D5322B26D128007B9E6D /* MovieCollectionViewCell.swift */,
+				84D801B82B27D4150092EEB4 /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				845CE84D2B24239E006D2BA2 /* AppDelegate.swift in Sources */,
 				845CE84F2B24239E006D2BA2 /* SceneDelegate.swift in Sources */,
 				84D801B52B27BCDE0092EEB4 /* MovieTableViewCell.swift in Sources */,
+				84D801B92B27D4150092EEB4 /* HomeView.swift in Sources */,
 				845CE8852B242A0F006D2BA2 /* UpcomingViewController.swift in Sources */,
 				84B5C4A82B266F3100E636C9 /* UIImage.swift in Sources */,
 				8481D5312B26C698007B9E6D /* Secrets.swift in Sources */,

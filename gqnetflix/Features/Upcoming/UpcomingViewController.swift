@@ -27,7 +27,6 @@ final class UpcomingViewController: UIViewController {
             DispatchQueue.main.async {
                 self.upcomingTableView.reloadData()
             }
-            
         }
     }
     
@@ -54,7 +53,7 @@ final class UpcomingViewController: UIViewController {
     }
 }
 
-// MARK: - Set Up
+// MARK: - Configuration
 private extension UpcomingViewController {
     func setUp() {
         view.backgroundColor = .systemBackground
