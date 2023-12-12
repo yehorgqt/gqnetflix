@@ -1,28 +1,28 @@
 //
-//  UpcomingViewController.swift
+//  TopSearchViewController.swift
 //  gqnetflix
 //
 //  Created by Yehor Farenbrukh on 09.12.2023.
 //
 
 import UIKit
-import Combine
 import SnapKit
+import Combine
 
-final class UpcomingViewController: UIViewController {
+final class TopSearchViewController: UIViewController {
     
     private var disposalBag = Set<AnyCancellable>()
     
-    private lazy var upcomingView: UpcomingView = {
-        let view = UpcomingView()
+    private lazy var topSearchView: TopSearchView = {
+        let view = TopSearchView()
         view.delegate = self
         return view
     }()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchMovies(endpoint: .upcomingMovies) { response in
-            self.upcomingView.movies = response.results
+        fetchMovies(endpoint: .topSearch) { response in
+            self.topSearchView.movies = response.results
         }
     }
     
@@ -33,26 +33,26 @@ final class UpcomingViewController: UIViewController {
 }
 
 // MARK: - Configuration
-private extension UpcomingViewController {
+private extension TopSearchViewController {
     func setup() {
         configureNavBar()
         
-        view.addSubview(upcomingView)
+        view.addSubview(topSearchView)
         
-        upcomingView.snp.makeConstraints { make in
+        topSearchView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
     func configureNavBar() {
-        title = "Upcoming"
+        title = "Top Search"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
 }
 
 // MARK: - Network
-private extension UpcomingViewController {
+private extension TopSearchViewController {
     func fetchMovies(endpoint: Endpoint, completion: @escaping (MoviesResponse) -> Void) {
         let publisher = MoviesClient.live.fetchMovies(NetworkRequest(httpMethod: .get, endpoint: endpoint))
         
@@ -71,5 +71,6 @@ private extension UpcomingViewController {
     }
 }
 
-// MARK: - Delegate
-extension UpcomingViewController: UpcomingDelegate {}
+// MARK: Delegate
+extension TopSearchViewController: TopSearchDelegate {}
+
