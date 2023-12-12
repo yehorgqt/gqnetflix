@@ -45,10 +45,10 @@ private extension MainTabBarViewController {
     }
     
     func searchVC() -> UINavigationController {
-        let homeVC = UINavigationController(rootViewController: TopSearchViewController())
+        let homeVC = UINavigationController(rootViewController: SearchViewController())
         
         homeVC.tabBarItem.image = UIImage(systemName: Symbols.search())
-        homeVC.title = "Top Search"
+        homeVC.title = "Search"
         
         return homeVC
     }

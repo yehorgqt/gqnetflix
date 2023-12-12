@@ -1,5 +1,5 @@
 //
-//  TopSearchView.swift
+//  SearchView.swift
 //  gqnetflix
 //
 //  Created by Yehor Farenbrukh on 12.12.2023.
@@ -8,13 +8,13 @@
 import UIKit
 import SnapKit
 
-protocol TopSearchDelegate: AnyObject {
+protocol SearchDelegate: AnyObject {
     func transform(with offset: CGFloat)
 }
 
-final class TopSearchView: UIView {
+final class SearchView: UIView {
     
-    weak var delegate: TopSearchDelegate?
+    weak var delegate: SearchDelegate?
     
     var movies: [Movie] = [] {
         didSet {
@@ -43,7 +43,7 @@ final class TopSearchView: UIView {
 }
 
 // MARK: - Configuration
-private extension TopSearchView {
+private extension SearchView {
     func setup() {
         backgroundColor = .black
         addSubview(searchTableView)
@@ -54,7 +54,7 @@ private extension TopSearchView {
     }
 }
 
-extension TopSearchView: UITableViewDelegate {
+extension SearchView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
@@ -67,7 +67,7 @@ extension TopSearchView: UITableViewDelegate {
     }
 }
 
-extension TopSearchView: UITableViewDataSource {
+extension SearchView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         movies.count
     }

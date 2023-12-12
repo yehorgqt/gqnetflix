@@ -1,5 +1,5 @@
 //
-//  TopSearchViewController.swift
+//  SearchViewController.swift
 //  gqnetflix
 //
 //  Created by Yehor Farenbrukh on 09.12.2023.
@@ -9,12 +9,12 @@ import UIKit
 import SnapKit
 import Combine
 
-final class TopSearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
     
     private var disposalBag = Set<AnyCancellable>()
     
-    private lazy var topSearchView: TopSearchView = {
-        let view = TopSearchView()
+    private lazy var searchView: SearchView = {
+        let view = SearchView()
         view.delegate = self
         return view
     }()
@@ -22,7 +22,7 @@ final class TopSearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchMovies(endpoint: .topSearch) { response in
-            self.topSearchView.movies = response.results
+            self.searchView.movies = response.results
         }
     }
     
@@ -33,26 +33,26 @@ final class TopSearchViewController: UIViewController {
 }
 
 // MARK: - Configuration
-private extension TopSearchViewController {
+private extension SearchViewController {
     func setup() {
         configureNavBar()
         
-        view.addSubview(topSearchView)
+        view.addSubview(searchView)
         
-        topSearchView.snp.makeConstraints { make in
+        searchView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
     func configureNavBar() {
-        title = "Top Search"
+        title = "Search"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
 }
 
 // MARK: - Network
-private extension TopSearchViewController {
+private extension SearchViewController {
     func fetchMovies(endpoint: Endpoint, completion: @escaping (MoviesResponse) -> Void) {
         let publisher = MoviesClient.live.fetchMovies(NetworkRequest(httpMethod: .get, endpoint: endpoint))
         
@@ -72,7 +72,7 @@ private extension TopSearchViewController {
 }
 
 // MARK: Delegate
-extension TopSearchViewController: TopSearchDelegate {
+extension SearchViewController: SearchDelegate {
     func transform(with offset: CGFloat) {
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
     }
