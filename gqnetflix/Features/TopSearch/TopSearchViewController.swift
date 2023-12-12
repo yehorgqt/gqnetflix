@@ -72,5 +72,9 @@ private extension TopSearchViewController {
 }
 
 // MARK: Delegate
-extension TopSearchViewController: TopSearchDelegate {}
+extension TopSearchViewController: TopSearchDelegate {
+    func transform(with offset: CGFloat) {
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
+    }
+}
 

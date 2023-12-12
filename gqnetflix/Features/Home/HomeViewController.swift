@@ -74,7 +74,7 @@ extension HomeViewController: HomeDelegate {
             .store(in: &disposalBag)
     }
     
-    func tranfsorm(with offset: CGFloat) {
+    func transform(with offset: CGFloat) {
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
     }
 }

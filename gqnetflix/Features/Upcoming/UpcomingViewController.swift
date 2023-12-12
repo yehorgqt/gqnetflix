@@ -72,4 +72,8 @@ private extension UpcomingViewController {
 }
 
 // MARK: - Delegate
-extension UpcomingViewController: UpcomingDelegate {}
+extension UpcomingViewController: UpcomingDelegate {
+    func transform(with offset: CGFloat) {
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
+    }
+}

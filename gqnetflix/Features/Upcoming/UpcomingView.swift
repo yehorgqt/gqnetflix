@@ -8,7 +8,9 @@
 import UIKit
 import SnapKit
 
-protocol UpcomingDelegate: AnyObject {}
+protocol UpcomingDelegate: AnyObject {
+    func transform(with offset: CGFloat)
+}
 
 final class UpcomingView: UIView {
     
@@ -56,6 +58,13 @@ private extension UpcomingView {
 extension UpcomingView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let defaultOffset = safeAreaInsets.top
+        let offset = scrollView.contentOffset.y + defaultOffset
+        
+        delegate?.transform(with: -offset)
     }
 }
 
