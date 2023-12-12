@@ -47,6 +47,7 @@ public enum Endpoint {
     case popularMovies
     case topRated
     case topSearch
+    case search(_ query: String)
 
     var route: String {
         switch self {
@@ -56,6 +57,7 @@ public enum Endpoint {
         case .popularMovies: return "/movie/popular?language=en-US"
         case .topRated: return "/movie/top_rated?language=en-US"
         case .topSearch: return "/discover/movie?language=en-US&sort_by=popularity.desc"
+        case .search(let query): return "/search/movie?query=\(query)&language=en-US&sort_by=popularity.desc"
         }
     }
 }
