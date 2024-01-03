@@ -21,6 +21,8 @@ final class DetailsViewController: UIViewController {
     }
 }
 
+
+// MARK: - Setup
 private extension DetailsViewController {
     func setup() {
         view.addSubview(detailsView)
