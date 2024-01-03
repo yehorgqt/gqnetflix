@@ -10,6 +10,7 @@ import SnapKit
 
 protocol UpcomingDelegate: AnyObject {
     func transform(with offset: CGFloat)
+    func openDetails()
 }
 
 final class UpcomingView: UIView {
@@ -89,5 +90,9 @@ extension UpcomingView: UITableViewDataSource {
         cell.configure(with: model)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.openDetails()
     }
 }
