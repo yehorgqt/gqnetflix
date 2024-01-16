@@ -38,10 +38,10 @@ private extension SearchResultViewController {
             make.edges.equalToSuperview()
         }
         
-        setupNavBar()
+        configureNavBar()
     }
     
-    func setupNavBar() {
+    func configureNavBar() {
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.hidesBarsWhenVerticallyCompact = true
     }
