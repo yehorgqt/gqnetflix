@@ -37,12 +37,15 @@ private extension SearchResultViewController {
         searchResultView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        setupNavBar()
+    }
+    
+    func setupNavBar() {
+        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsWhenVerticallyCompact = true
     }
 }
 
 // MARK: - Delegate
-extension SearchResultViewController: SearchResultDelegate {
-    func tranform(with offset: CGFloat) {
-        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
-    }
-}
+extension SearchResultViewController: SearchResultDelegate {}

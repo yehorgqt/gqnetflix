@@ -8,9 +8,7 @@
 import UIKit
 import SnapKit
 
-protocol SearchDelegate: AnyObject {
-    func transform(with offset: CGFloat)
-}
+protocol SearchDelegate: AnyObject {}
 
 final class SearchView: UIView {
     
@@ -57,13 +55,6 @@ private extension SearchView {
 extension SearchView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let defaultOffset = safeAreaInsets.top
-        let offset = scrollView.contentOffset.y + defaultOffset
-        
-        delegate?.transform(with: -offset)
     }
 }
 

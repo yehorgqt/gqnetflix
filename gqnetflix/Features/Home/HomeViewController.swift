@@ -52,6 +52,9 @@ private extension HomeViewController {
         ]
         
         navigationController?.navigationBar.tintColor = .red
+        
+        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsWhenVerticallyCompact = true
     }
 }
 
@@ -72,9 +75,5 @@ extension HomeViewController: HomeDelegate {
                 completion(response)
             }
             .store(in: &disposalBag)
-    }
-    
-    func transform(with offset: CGFloat) {
-        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
     }
 }

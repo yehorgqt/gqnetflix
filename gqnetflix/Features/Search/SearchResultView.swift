@@ -8,9 +8,7 @@
 import UIKit
 import SnapKit
 
-protocol SearchResultDelegate: AnyObject {
-    func tranform(with offset: CGFloat)
-}
+protocol SearchResultDelegate: AnyObject {}
 
 final class SearchResultView: UIView {
 
@@ -60,9 +58,7 @@ private extension SearchResultView {
 }
 
 // MARK: - Delegate
-extension SearchResultView: UICollectionViewDelegate {
-    
-}
+extension SearchResultView: UICollectionViewDelegate {}
 
 // MARK: - Data Source
 extension SearchResultView: UICollectionViewDataSource {

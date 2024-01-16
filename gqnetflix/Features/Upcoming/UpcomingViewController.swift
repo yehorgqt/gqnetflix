@@ -48,6 +48,8 @@ private extension UpcomingViewController {
         title = "Upcoming"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsWhenVerticallyCompact = true
     }
 }
 
@@ -75,9 +77,5 @@ private extension UpcomingViewController {
 extension UpcomingViewController: UpcomingDelegate {
     func openDetails() {
         navigationController?.pushViewController(DetailsViewController(), animated: true)
-    }
-    
-    func transform(with offset: CGFloat) {
-        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
     }
 }

@@ -10,7 +10,6 @@ import SnapKit
 
 protocol HomeDelegate: AnyObject {
     func fetchMovies(endpoint: Endpoint, completion: @escaping (MoviesResponse) -> Void)
-    func transform(with offset: CGFloat)
 }
 
 fileprivate enum Sections: Int {
@@ -79,13 +78,6 @@ extension HomeView: UITableViewDelegate {
         headerConfiguration.text = sectionTitles[section]
         
         header.contentConfiguration = headerConfiguration
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let defaultOffset = safeAreaInsets.top
-        let offset = scrollView.contentOffset.y + defaultOffset
-        
-        delegate?.transform(with: -offset)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

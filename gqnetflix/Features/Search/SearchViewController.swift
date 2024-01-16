@@ -59,6 +59,8 @@ private extension SearchViewController {
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationItem.searchController = searchController
         navigationController?.navigationBar.tintColor = .systemRed
+        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsWhenVerticallyCompact = true
     }
 }
 
@@ -84,11 +86,7 @@ private extension SearchViewController {
 }
 
 // MARK: Delegate
-extension SearchViewController: SearchDelegate {
-    func transform(with offset: CGFloat) {
-        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, offset))
-    }
-}
+extension SearchViewController: SearchDelegate {}
 
 // MARK: - Search Results Updating Protocol
 extension SearchViewController: UISearchResultsUpdating {
