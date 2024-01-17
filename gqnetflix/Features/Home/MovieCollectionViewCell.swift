@@ -24,7 +24,7 @@ final class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     required init(coder: NSCoder) {
-        fatalError()
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
