@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol UpcomingDelegate: AnyObject {
-    func openDetails()
+    func openDetails(with model: MovieViewModel)
 }
 
 final class UpcomingView: UIView {
@@ -85,6 +85,12 @@ extension UpcomingView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.openDetails()
+        let movie = movies[indexPath.row]
+        let model = MovieViewModel(
+            title: movie.safeName,
+            postUrl: movie.posterPath ?? "",
+            overview: movie.overview ?? "..."
+        )
+        delegate?.openDetails(with: model)
     }
 }

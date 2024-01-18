@@ -75,7 +75,7 @@ private extension UpcomingViewController {
 
 // MARK: - Delegate
 extension UpcomingViewController: UpcomingDelegate {
-    func openDetails() {
-        navigationController?.pushViewController(DetailsViewController(), animated: true)
+    func openDetails(with model: MovieViewModel) {
+        navigationController?.pushViewController(DetailsViewController(movie: model), animated: true)
     }
 }
