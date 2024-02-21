@@ -13,4 +13,3 @@ final class DownloadsViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
 }
-

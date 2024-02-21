@@ -8,13 +8,13 @@
 import UIKit
 
 final class NetflixMainButton: UIButton {
-    
+
     init(title: String) {
         super.init(frame: .zero)
         setUp()
         setTitle(title, for: .normal)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError()
     }

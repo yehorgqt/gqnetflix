@@ -8,13 +8,13 @@
 import UIKit
 
 final class SearchResultViewController: UIViewController {
-    
+
     private lazy var searchResultView: SearchResultView = {
         let view = SearchResultView()
         view.delegate = self
         return view
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -33,14 +33,14 @@ private extension SearchResultViewController {
     func setup() {
         view.backgroundColor = .black
         view.addSubview(searchResultView)
-        
+
         searchResultView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         configureNavBar()
     }
-    
+
     func configureNavBar() {
         navigationController?.hidesBarsOnSwipe = true
         navigationController?.hidesBarsWhenVerticallyCompact = true

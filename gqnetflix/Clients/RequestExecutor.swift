@@ -8,33 +8,33 @@
 import Foundation
 import Combine
 
-private var baseURL = Bundle.main.object(forInfoDictionaryKey: "ENV_URL") as! String
+private var baseURL = Bundle.main.object(forInfoDictionaryKey: "ENV_URL") as? String
 
 enum RequestExecutor {
     static func executeJSONRequest<T: Decodable>(_ networkRequest: NetworkRequest) -> AnyPublisher<T, ApiError> {
-        
+
         guard let request = prepareRequest(networkRequest) else {
             return Fail(error: ApiError.badRequest).eraseToAnyPublisher()
         }
-        
+
         return URLSession.shared.dataTaskPublisher(for: request)
-            .mapError { error in
+            .mapError { _ in
                 return .noInternetConnection
             }
             .flatMap { pair -> AnyPublisher<T, ApiError> in
                 if let response = pair.response as? HTTPURLResponse {
                     if (200...499).contains(response.statusCode) {
-                        
+
                         return Just(pair.data)
                             .decode(type: T.self, decoder: liveDecoder())
                             .mapError { error in .decodingFailed(error) }
                             .eraseToAnyPublisher()
-                        
+
                     } else {
                         return Fail(error: ApiError.badServerResponse(response.statusCode)).eraseToAnyPublisher()
                     }
                 }
-                
+
                 return Fail(error: ApiError.genericError("Invalid server response")).eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()
@@ -42,8 +42,8 @@ enum RequestExecutor {
 }
 
 private func prepareRequest(_ networkRequest: NetworkRequest) -> URLRequest? {
-    var components = URLComponents(string: baseURL + networkRequest.endpoint.route)
-    
+    var components = URLComponents(string: baseURL! + networkRequest.endpoint.route)
+
     if !networkRequest.parameters.isEmpty {
         let queryItems = networkRequest.parameters.map {
             URLQueryItem(name: $0, value: "\($1)")
@@ -59,12 +59,12 @@ private func prepareRequest(_ networkRequest: NetworkRequest) -> URLRequest? {
     var request = URLRequest(url: url)
     request.httpMethod = networkRequest.httpMethod.rawValue
     request.allHTTPHeaderFields = networkRequest.headers
-    
+
     request.addValue("Bearer \(Secrets.apiKey)", forHTTPHeaderField: "Authorization")
-    
+
     if let body = networkRequest.body {
         request.httpBody = body
     }
-    
+
     return request
 }

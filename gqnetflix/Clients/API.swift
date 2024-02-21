@@ -12,7 +12,7 @@ public enum ApiError: Error, Equatable {
     public static func == (lhs: ApiError, rhs: ApiError) -> Bool {
         return lhs.localizedDescription == rhs.localizedDescription
     }
-    
+
     case badServerResponse(Int)
     case decodingFailed(Error)
     case encodingFailed(Error)
@@ -27,7 +27,7 @@ public struct NetworkRequest {
     let endpoint: Endpoint
     var parameters: Parameters = [:]
     var headers: Headers = ["Content-Type": "application/json", "Device-Type": "ios"]
-    var body: Data? = nil
+    var body: Data?
 }
 
 // MARK: - Request methods

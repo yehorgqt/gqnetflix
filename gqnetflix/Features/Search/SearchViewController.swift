@@ -10,29 +10,29 @@ import SnapKit
 import Combine
 
 final class SearchViewController: UIViewController {
-    
+
     private var сancellable: AnyCancellable?
-    
+
     private lazy var searchView: SearchView = {
         let view = SearchView()
         view.delegate = self
         return view
     }()
-    
+
     private let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchResultViewController())
         controller.searchBar.placeholder = "Search for a Movie"
         controller.searchBar.searchBarStyle = .minimal
         return controller
     }()
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchMovies(endpoint: .topSearch) { response in
             self.searchView.movies = response.results
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -43,16 +43,16 @@ final class SearchViewController: UIViewController {
 private extension SearchViewController {
     func setup() {
         configureNavBar()
-        
+
         view.addSubview(searchView)
-        
+
         searchController.searchResultsUpdater = self
-        
+
         searchView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
-    
+
     func configureNavBar() {
         title = "Search"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -68,7 +68,7 @@ private extension SearchViewController {
 private extension SearchViewController {
     func fetchMovies(endpoint: Endpoint, completion: @escaping (MoviesResponse) -> Void) {
         let request = NetworkRequest(httpMethod: .get, endpoint: endpoint)
-        
+
         self.сancellable = MoviesClient.live.fetchMovies(request)
             // TODO: Add debounce for search request
             .sink { completion in
@@ -92,7 +92,7 @@ extension SearchViewController: SearchDelegate {}
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        
+
         guard let query = searchBar.text,
               !query.trimmingCharacters(in: .whitespaces).isEmpty,
               query.trimmingCharacters(in: .whitespaces).count >= 2,
@@ -100,11 +100,9 @@ extension SearchViewController: UISearchResultsUpdating {
         else {
             return
         }
-        
+
         fetchMovies(endpoint: .search(query)) { response in
             resultController.updateMovies(with: response.results)
         }
     }
 }
-
-

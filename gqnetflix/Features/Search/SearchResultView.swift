@@ -13,7 +13,7 @@ protocol SearchResultDelegate: AnyObject {}
 final class SearchResultView: UIView {
 
     weak var delegate: SearchResultDelegate?
-    
+
     var movies: [Movie] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -21,25 +21,26 @@ final class SearchResultView: UIView {
             }
         }
     }
-    
+
     private lazy var searchResultsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 10, height: 200)
         layout.minimumInteritemSpacing = 0
-        
+
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.indentifier)
-        
+        collectionView.register(MovieCollectionViewCell.self,
+                                forCellWithReuseIdentifier: MovieCollectionViewCell.indentifier)
+
         return collectionView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -50,7 +51,7 @@ private extension SearchResultView {
     func setup() {
         backgroundColor = .black
         addSubview(searchResultsCollectionView)
-        
+
         searchResultsCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -65,19 +66,19 @@ extension SearchResultView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         movies.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: MovieCollectionViewCell.indentifier,
             for: indexPath) as? MovieCollectionViewCell
         else {
             return UICollectionViewCell()
         }
-        
+
         let movie = movies[indexPath.row]
         cell.configure(with: movie.posterPath ?? "")
         return cell
     }
-    
-    
 }

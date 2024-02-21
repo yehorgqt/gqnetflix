@@ -8,16 +8,16 @@
 import UIKit
 
 final class MovieTableViewCell: UITableViewCell {
-    
+
     static let identifier = String(describing: MovieTableViewCell.self)
-    
+
     private lazy var movieLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private lazy var overviewLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .medium)
@@ -25,7 +25,7 @@ final class MovieTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
-    
+
     private lazy var moviePosterView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -34,16 +34,16 @@ final class MovieTableViewCell: UITableViewCell {
         imageView.layer.cornerRadius = 5
         return imageView
     }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUp()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
+
     func configure(with model: MovieViewModel) {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(model.postUrl)") else { return }
         moviePosterView.sd_setImage(with: url)
@@ -60,10 +60,10 @@ private extension MovieTableViewCell {
         contentView.addSubview(moviePosterView)
         contentView.addSubview(movieLabel)
         contentView.addSubview(overviewLabel)
-        
+
         applyConstraints()
     }
-    
+
     func applyConstraints() {
         moviePosterView.snp.makeConstraints { make in
             make.leading.equalTo(contentView.snp.leading)
@@ -71,13 +71,13 @@ private extension MovieTableViewCell {
             make.bottom.equalTo(-15)
             make.width.equalTo(100)
         }
-        
+
         movieLabel.snp.makeConstraints { make in
             make.leading.equalTo(moviePosterView.snp.trailing).offset(20)
             make.trailing.equalTo(self.snp.trailing).offset(-20)
             make.centerY.equalTo(25)
         }
-        
+
         overviewLabel.snp.makeConstraints { make in
             make.leading.equalTo(moviePosterView.snp.trailing).offset(20)
             make.top.equalTo(movieLabel.snp.bottom)

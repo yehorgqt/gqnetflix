@@ -13,9 +13,9 @@ protocol UpcomingDelegate: AnyObject {
 }
 
 final class UpcomingView: UIView {
-    
+
     weak var delegate: UpcomingDelegate?
-    
+
     var movies: [Movie] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -23,7 +23,7 @@ final class UpcomingView: UIView {
             }
         }
     }
-    
+
     private lazy var upcomingTableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
@@ -31,12 +31,12 @@ final class UpcomingView: UIView {
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
         return tableView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -47,7 +47,7 @@ private extension UpcomingView {
     func setup() {
         backgroundColor = .black
         addSubview(upcomingTableView)
-        
+
         upcomingTableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -66,13 +66,13 @@ extension UpcomingView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         movies.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: MovieTableViewCell.identifier,
             for: indexPath) as? MovieTableViewCell
         else { return UITableViewCell() }
-        
+
         let movie = movies[indexPath.row]
         let model = MovieViewModel(
             title: movie.safeName,
@@ -80,10 +80,10 @@ extension UpcomingView: UITableViewDataSource {
             overview: movie.overview ?? "..."
         )
         cell.configure(with: model)
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movie = movies[indexPath.row]
         let model = MovieViewModel(

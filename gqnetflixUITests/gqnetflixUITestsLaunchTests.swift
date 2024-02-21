@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class gqnetflixUITestsLaunchTests: XCTestCase {
+final class GqnetflixUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

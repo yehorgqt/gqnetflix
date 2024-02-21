@@ -19,7 +19,7 @@ final class MainTabBarViewController: UITabBarController {
 private extension MainTabBarViewController {
     func setUp() {
         tabBar.tintColor = .systemRed
-        
+
         setViewControllers([homeVC(), upcomingVC(), searchVC(), downloadsVC()], animated: true)
     }
 }
@@ -28,38 +28,37 @@ private extension MainTabBarViewController {
 private extension MainTabBarViewController {
     func homeVC() -> UINavigationController {
         let homeVC = UINavigationController(rootViewController: HomeViewController())
-        
+
         homeVC.tabBarItem.image = UIImage(systemName: Symbols.house())
         homeVC.title = "Home"
-        
+
         return homeVC
     }
-    
+
     func upcomingVC() -> UINavigationController {
         let homeVC = UINavigationController(rootViewController: UpcomingViewController())
-        
+
         homeVC.tabBarItem.image = UIImage(systemName: Symbols.upcoming())
         homeVC.title = "Coming Soon"
-        
+
         return homeVC
     }
-    
+
     func searchVC() -> UINavigationController {
         let homeVC = UINavigationController(rootViewController: SearchViewController())
-        
+
         homeVC.tabBarItem.image = UIImage(systemName: Symbols.search())
         homeVC.title = "Search"
-        
+
         return homeVC
     }
-    
+
     func downloadsVC() -> UINavigationController {
         let homeVC = UINavigationController(rootViewController: DownloadsViewController())
-        
+
         homeVC.tabBarItem.image = UIImage(systemName: Symbols.downloads())
         homeVC.title = "Downloads"
-        
+
         return homeVC
     }
 }
-
