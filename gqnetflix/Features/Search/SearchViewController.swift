@@ -70,16 +70,14 @@ private extension SearchViewController {
         let request = NetworkRequest(httpMethod: .get, endpoint: endpoint)
 
         self.сancellable = MoviesClient.live.fetchMovies(request)
-            // TODO: Add debounce for search request
-            .sink { completion in
-                switch completion {
+            .sink { result in
+                switch result {
                 case .finished:
                     break
                 case .failure(let error):
                     debugPrint(error)
                 }
             } receiveValue: { response in
-
                 completion(response)
             }
     }
@@ -101,8 +99,10 @@ extension SearchViewController: UISearchResultsUpdating {
             return
         }
 
-        fetchMovies(endpoint: .search(query)) { response in
-            resultController.updateMovies(with: response.results)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.fetchMovies(endpoint: .search(query)) { response in
+                resultController.updateMovies(with: response.results)
+            }
         }
     }
 }
